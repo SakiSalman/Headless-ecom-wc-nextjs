@@ -2,6 +2,7 @@ import axios from "axios";
 import { getSession, storeSession } from "../sessions/sessions";
 import { getApiCartConfig } from "./api";
 import { SiTruenas } from "react-icons/si";
+import { toaster } from "../useToaster";
 
 export const CART_ENDPOINT = `${process.env.NEXT_PUBLIC_URL}/wp-json/rae/v1/cart/items/`;
 
@@ -41,6 +42,7 @@ export const viewCart = (setCart:(cart:[]) => void) => {
       if (res?.data.length > 0) {
         localStorage.setItem("next-cart", JSON.stringify(res?.data))
         setCart(res?.data)
+        toaster("success","Product Added To Cart")
       }
     })
     .catch((err) => console.log(err));
