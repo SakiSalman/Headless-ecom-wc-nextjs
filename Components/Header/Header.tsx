@@ -33,12 +33,14 @@ const Header = ({headerData}: Props) => {
               
             </ul>
           </div>
+          <Link href="/cart">
           <div className="flex justify-end items-center">
             <span className="text-xl  flex">
           <FaBagShopping />
           <span className="text-sm">{cart.length}</span>
             </span>
           </div>
+          </Link>
         </div>
       </div>
     </div>
